@@ -1,0 +1,323 @@
+/* RESET INICIAL*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ESTILOS GENERALES */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #293F54;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    color: #284053;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+
+/* CABECERA */
+.aviso {
+    padding: 12px;
+    text-align: center;
+    background-color: #C1DCE7;
+    color: #293F54;
+}
+
+header {
+    background-color: #293F54;
+    color: white;
+
+    padding: 18px;
+
+    position: sticky;
+    top: 0px;
+
+    z-index: 100;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+/* MENÚ DE NAVEGACIÓN */
+
+.menu {
+    list-style: none;
+    text-align: center;
+}
+
+.menu > li {
+    display: inline-block;
+
+    position: relative;
+}
+
+.menu a {
+    display: block;
+
+    padding: 10px 18px;
+
+    color: white;
+
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: #3C5B73;
+}
+
+
+/* SUBMENÚ */
+
+.submenu {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 160px;
+
+    background-color: #3C5B73;
+
+    list-style: none;
+
+    text-align: left;
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu a {
+    white-space: nowrap;
+}
+
+.submenu a:hover {
+    background-color: #6393B6;
+}
+
+.item-programa:hover .submenu {
+    display: block;
+}
+
+
+/* SELECTOR DE ATRIBUTO */
+
+a[target="_blank"] {
+    font-weight: bold;
+}
+
+
+/* ZONA PRINCIPAL */
+
+main {
+    padding-bottom: 40px;
+}
+
+
+/* HERO / PRESENTACIÓN */
+
+.hero {
+    width: 70%;
+    max-width: 850px;
+
+    margin: 50px auto;
+    padding: 60px 40px;
+
+    background-color: white;
+
+    border: 2px solid #6393B6;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px #999;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.hero h2 {
+    font-size: 36px;
+
+    margin-bottom: 20px;
+}
+
+.fecha {
+    margin-bottom: 10px;
+
+    color: #6393B6;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.introduccion {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    font-size: 18px;
+}
+
+.introduccion::first-letter {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+/* ETIQUETA NUEVO */
+
+.etiqueta {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    padding: 6px 12px;
+
+    background-color: #FDCC85;
+    color: #293F54;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    border-radius: 4px;
+}
+
+
+/* BOTONES */
+
+.boton {
+    display: inline-block;
+
+    margin-top: 25px;
+    padding: 12px 22px;
+
+    background-color: #3C5B73;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+}
+
+.boton:hover {
+    background-color: #FDCC85;
+    color: #293F54;
+}
+
+
+/* SECCIÓN ARTISTA */
+
+.artista {
+    width: 70%;
+    max-width: 850px;
+
+    margin: 40px auto;
+    padding: 30px;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    overflow: auto;
+}
+
+.artista img {
+    width: 200px;
+
+    float: left;
+
+    margin-right: 25px;
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+}
+
+.artista p {
+    margin-bottom: 15px;
+}
+
+
+/* SECCIONES DE INFORMACIÓN */
+
+.informacion {
+    width: 70%;
+    max-width: 850px;
+
+    margin: 40px auto;
+    padding: 30px;
+
+    background-color: white;
+
+    border-radius: 10px;
+}
+
+.informacion h3 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+
+    color: #3C5B73;
+}
+
+.informacion p {
+    margin-bottom: 15px;
+}
+
+
+/* PIE DE PÁGINA */
+
+footer {
+    padding: 30px;
+
+    background-color: #293F54;
+    color: white;
+
+    text-align: center;
+}
+
+
+/* BOTÓN DE AYUDA FIJO */
+
+.ayuda {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    line-height: 45px;
+
+    background-color: #FDCC85;
+    color: #293F54;
+
+    border-radius: 50%;
+
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 6px #999;
+}
