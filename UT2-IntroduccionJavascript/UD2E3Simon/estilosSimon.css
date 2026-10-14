@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.pagina {
+    display: flex;
+}
+
+.columna {
+    flex: 1;
+    padding: 20px;
+}
+
+.tabla {
+    width: 260px;
+}
+
+.fila {
+    display: flex;
+}
+
+.boton {
+    width: 120px;
+    height: 120px;
+    margin: 5px;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.verde.encendido {
+    background-color: green;
+}
+
+.rojo.encendido {
+    background-color: red;
+}
+
+.azul.encendido {
+    background-color: blue;
+}
+
+.amarillo.encendido {
+    background-color: yellow;
+}
