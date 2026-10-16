@@ -8,7 +8,7 @@ function aplicar(array $datos, callable $fn):array{
     return $resultado;
 }
 
-print_r(aplicar([1,2,3],fn($n) => $n*10)
+
 
 
 
