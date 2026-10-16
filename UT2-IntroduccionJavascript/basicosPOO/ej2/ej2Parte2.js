@@ -3,7 +3,7 @@
 class Animal {
     constructor(nombre) {
         this.nombre = nombre;
-        this.tipo = 'animal';
+        this.tipo=this.tipo;
     }
  
     comer() {
@@ -43,8 +43,9 @@ class Gato extends Animal {
 
 
 const animal = new Animal('animal', 'Bicho');
-const perro = new Animal('perro', 'Toby');
-const gato = new Animal('gato', 'Misi');
+const perro = new Perro('perro', 'Toby');
+const gato = new Gato('gato', 'Misi');
+const raro = new Animal('dragon', 'Smaug'); 
 
 console.log(animal.comer());
 console.log(animal.dormir());
@@ -57,3 +58,4 @@ console.log(perro.hacerRuido());
 console.log(gato.comer());
 console.log(gato.dormir());
 console.log(gato.hacerRuido()); 
+console.log(raro.hacerRuido());

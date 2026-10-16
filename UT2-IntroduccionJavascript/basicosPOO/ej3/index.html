@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura ej3</title>
+    <link rel="icon" href="#">
+    <script src="ej3.js" defer></script>
+</head>
+<body>
+    <div>
+        <div><label for="nif">NIF:</label> <input type="text" id="nif"></div>
+        <div><label for="fecha">Fecha:</label> <input type="date" id="fecha"></div>
+        <div><label for="hora">Hora:</label> <input type="datetime-local" id="hora"></div>
+        <div><label for="pagada">Pagada:</label> <input type="checkbox" id="pagada"></div>
+        <button id="btnActualizar">Actualizar</button>
+    </div>
+
+    <div>
+        <div><label for="concepto">Concepto</label> <input type="text" id="concepto"></div>
+        <div><label for="cantidad">Cantidad</label> <input type="number" id="cantidad"></div>
+        <div><label for="precio">Precio</label> <input type="number" id="precio" step="0.01"></div>
+        <button id="agregarLinea">Agregar Linea</button>
+        <button id="eliminarLinea">Eliminar Linea</button>
+    </div>
+
+    <div>
+        <div>Impresion</div>
+        <div id="impresion"></div>
+    </div>
+</body>
+</html>
