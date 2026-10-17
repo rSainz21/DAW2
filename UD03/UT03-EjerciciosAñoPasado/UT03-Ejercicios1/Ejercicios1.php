@@ -171,17 +171,14 @@
             "Naranja" => 4,
             "Kiwi" => 6
         ];
-        foreach ($productos as $fruta => $precio) {
-            foreach ($compra as $frutaCompra => $kgs){
-                
-            }
+        $total = 0;
+        foreach ($compra as $fruta => $kilos) {
+            $subtotal = $kilos * $productos[$fruta];
+            print $kilos . " kg de " . $fruta . " a " . $productos[$fruta] . " €/kg = " . $subtotal . " €<br/>";
+            $total += $subtotal;
         }
-
-
-
-
+        print "<strong>Precio final: " . $total . " €</strong><br/>";
         ?>
-
 
 </body>
 
