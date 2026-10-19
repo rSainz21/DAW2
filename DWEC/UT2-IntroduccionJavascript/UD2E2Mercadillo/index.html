@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercadillo</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="#">
+    <script src="mercadillo.js" defer></script>
+</head>
+
+<body>
+
+    <div>
+        <div><label for="nombre">Nombre:</label> <input type="text" id="nombre"></div>
+        <div><label for="cantidad">Cantidad:</label> <input type="number" id="cantidad"></div>
+        <div><label for="precio">Precio:</label> <input type="number" id="precio" step="0.01"></div>
+        <div><label for="categoria">Categoría:</label> <input type="text" id="categoria"></div>
+    </div>
+    <div>
+        <button id="btnAgregar">Agregar producto</button>
+        <button id="btnEliminar">Eliminar producto</button>
+        <button id="btnBuscar">Buscar producto</button>
+        <button id="btnActualizar">Actualizar stock</button>
+        <button id="btnOrdenar">Ordenar por precio</button>
+        <button id="btnImprimir">Imprimir inventario</button>
+        <button id="btnFiltrar">Filtrar por categoría</button>
+    </div>
+
+    <div class="tabla">
+
+        <div class="fila cabecera">
+            <div>Nombre</div>
+            <div>Categoría</div>
+            <div>Cantidad</div>
+            <div>Precio</div>
+            <div>Total</div>
+        </div>
+        <div id="resultado"></div>
+
+    </div>
+</body>
+
+</html>

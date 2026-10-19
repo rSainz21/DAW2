@@ -1,0 +1,21 @@
+.tabla{
+    border: 1px solid black;
+}
+
+.fila{
+    display: flex;
+}
+
+.fila>div{ /*son las celdas de la fila */
+    flex: 1;
+    border: 1px solid black;
+    padding: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cabecera{
+    font-weight: bold;
+    text-align: center;
+}
