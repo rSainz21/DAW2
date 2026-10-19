@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Formulario completo con atributos</title>
+</head>
+<body>
+
+<h1>Formulario HTML5 completo</h1>
+
+<!-- action: La URL a la que se enviarán los datos del formulario,
+  method: El método HTTP a usar para enviar los datos (GET o POST),
+  enctype: El tipo de codificación de los datos,
+  autocomplete: Si se debe completar automáticamente los campos con datos previamente introducidos,
+  novalidate: Si se debe deshabilitar la validación html del formulario,
+  target: El destino de la página resultante -->
+<form
+    action="imprimirDatosRecibidos.php"
+    method="post"
+    enctype="multipart/form-data"
+    autocomplete="on"
+
+    target="_blank">
+
+    <!-- type: El tipo de campo,
+         name: El con el que se envía el campo al servidor, 
+         autofocus: El campo obtiene el foco automáticamente al cargar la página, 
+         required: El campo es obligatorio, 
+         maxlength: Máximo de caracteres, 
+         minlength: Mínimo de caracteres, 
+         placeholder: Texto de ayuda, 
+         size: Tamaño del campo
+      -->
+    <label>Nombre:
+        <input
+            type="text"
+            name="nombre"
+            required
+            autofocus   
+            minlength="3"
+            maxlength="30"
+            size="40"
+            placeholder="Escribe tu nombre">
+    </label>
+
+    <br><br>
+
+    <!-- readonly -->
+    <label>Usuario:
+        <!-- value: El valor por defecto del campo, 
+             readonly: Si el campo es de solo lectura (no se podrá modificar) -->
+        <input
+            type="text"
+            name="usuario"
+            value="admin"
+            readonly>
+    </label>
+
+    <br><br>
+
+    <!-- disabled -->
+    <label>Campo deshabilitado:
+        <!-- disabled: Si el campo está deshabilitado (no se podrá interactuar con él) ni se enviará al servidor.
+            se usa para mostrar información proveniente del servidor. -->
+        <input
+            type="text"
+            value="No editable"
+            disabled>
+    </label>
+
+    <br><br>
+
+    <!-- pattern -->
+    <label>DNI:
+        <!-- pattern: Expresión regular que debe coincidir con el valor del campo,
+             title: Texto que se muestra dinámicamente como ayuda cuando el campo no es válido -->
+        <input
+            type="text"
+            name="dni"
+            pattern="[0-9]{8}[A-Z]"
+            title="8 números y una letra">
+    </label>
+
+    <br><br>
+
+    <!-- email -->
+    <label>Email:
+        <!-- autocomplete: establece el comportamiento específico para este campo, 
+             hay muchos valores posibles, para que el navegador complete con valores adecuados de su historial-->
+        <input
+            type="email"
+            name="email"
+            autocomplete="email">
+    </label>
+
+    <br><br>
+
+    <!-- number con min max step -->
+    <label>Edad:
+        <input
+            type="number"
+            name="edad"
+            min="18"
+            max="120"
+            step="1">
+    </label>
+
+    <br><br>
+
+    <!-- tel -->
+    <label>Teléfono:
+        <!-- tel: solo significado semántico (para el autocompletado por ejemplo)-->
+        <input
+            type="tel"
+            name="telefono">
+    </label>
+
+    <br><br>
+
+    <!-- url -->
+    <label>Web:
+        <!-- url: poco más que significado semántico (para el autocompletado por ejemplo). Valida que haya : -->
+        <input
+            type="url"
+            name="web">
+    </label>
+
+    <br><br>
+
+    <!-- date -->
+    <label>Fecha nacimiento:
+        <input
+            type="date"
+            name="fecha"
+            min="1900-01-01"
+            max="2100-12-31">
+    </label>
+
+    <br><br>
+
+    <!-- color -->
+    <label>Color favorito:
+        <input
+            type="color"
+            name="color"
+            value="#00ff00">
+    </label>
+
+    <br><br>
+
+    <!-- range -->
+    <label>Nivel:
+        <input
+            type="range"
+            name="nivel"
+            min="0"
+            max="10"
+            step="2">
+    </label>
+
+    <br><br>
+
+    <!-- checkbox -->
+    <label>
+        <input
+            type="checkbox"
+            name="acepta"
+            checked>
+        Acepto condiciones
+    </label>
+
+    <br><br>
+
+    <!-- radio -->
+    Género:
+    <input
+        type="radio"
+        id="hombre"
+        name="sexo"
+        value="H">
+
+    <label for="hombre">Hombre</label>
+
+    <input
+        type="radio"
+        id="mujer"
+        name="sexo"
+        value="M">
+
+    <label for="mujer">Mujer</label>
+
+    <br><br>
+
+    <!-- multiple -->
+    <label>Archivos:
+        <!-- multiple: permite seleccionar varios archivos -->
+        <input
+            type="file"
+            name="ficheros"
+            multiple
+            accept=".pdf,.docx">
+    </label>
+
+    <br><br>
+
+    <!-- hidden -->
+     <!-- hidden: campo oculto que no se muestra al usuario, pero que se envía con el formulario.
+        Se utiliza para enviar datos que no deben ser modificados por el usuario, 
+        como por ejemplo datos de sesión. Ojo, se ven en la fuente del HTML -->
+    <input
+        type="hidden"
+        name="idUsuario"
+        value="1234">
+
+    <!-- textarea -->
+    <label>Observaciones:</label>
+    <textarea
+        name="comentarios"
+        rows="5"
+        cols="40">
+    </textarea>
+
+    <br><br>
+
+    <!-- select -->
+    <label>Provincia:
+        <select name="provincia">
+            <option value="">Seleccione...</option>
+            <option value="S">Santander</option>
+            <option value="M">Madrid</option>
+            <option value="B">Barcelona</option>
+        </select>
+    </label>
+
+    <br><br>
+
+    <!-- select multiple -->
+    <label>Idiomas:</label>
+        <!-- size en select: controla el número de opciones visibles en el select     -->
+    <select
+        name="idiomas[]"
+        multiple
+        size="3">
+        <option>Español</option>
+        <option>Inglés</option>
+        <option>Francés</option>
+    </select>
+
+    <br><br>
+
+    <!-- datalist -->
+    <label>Navegador:
+        <!-- list: especifica el id del datalist que se utilizará -->
+        <input list="navegadores">
+    </label>
+
+    <datalist id="navegadores">
+        <option value="Chrome">
+        <option value="Firefox">
+        <option value="Edge">
+    </datalist>
+
+    <br><br>
+
+    <!-- button -->
+    <button type="button">
+        Botón normal
+    </button>
+
+    <!-- formaction: especifica la URL a la que se enviará el formulario si se presiona el botón. 
+        Puede ser diferente a la URL del formulario principal (crear.php o modificar.php) -->
+    <input
+        type="submit"
+        value="Enviar"
+        formaction="alta.php">
+
+    <!-- formmethod -->
+    <input
+        type="submit"
+        value="Enviar GET"
+        formmethod="get">
+
+    <!-- formnovalidate -->
+    <input
+        type="submit"
+        value="Enviar sin validar"
+        formnovalidate>
+
+    <!-- reset -->
+    <input
+        type="reset"
+        value="Limpiar">
+</form>
+
+</body>
+</html>

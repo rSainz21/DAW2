@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario completo</title>
+</head>
+<body>
+
+<h1>Formulario de ejemplo</h1>
+
+<form action="imprimirDatosRecibidos.php" method="post">
+
+    <!-- text -->
+    <label>Texto:
+        <input type="text" name="texto">
+    </label>
+    <br><br>
+
+    <!-- password -->
+    <label>Contraseña:
+        <input type="password" name="password">
+    </label>
+    <br><br>
+
+    <!-- email -->
+    <label>Email:
+        <input type="email" name="email">
+    </label>
+    <br><br>
+
+    <!-- number -->
+    <label>Número:
+        <input type="number" name="numero" min="0" max="100">
+    </label>
+    <br><br>
+
+    <!-- tel -->
+    <label>Teléfono:
+        <input type="tel" name="telefono">
+    </label>
+    <br><br>
+
+    <!-- url -->
+    <label>URL:
+        <input type="url" name="web">
+    </label>
+    <br><br>
+
+    <!-- search -->
+    <label>Búsqueda:
+        <input type="search" name="busqueda">
+    </label>
+    <br><br>
+
+    <!-- date -->
+    <label>Fecha:
+        <input type="date" name="fecha">
+    </label>
+    <br><br>
+
+    <!-- time -->
+    <label>Hora:
+        <input type="time" name="hora">
+    </label>
+    <br><br>
+
+    <!-- datetime-local -->
+    <label>Fecha y hora:
+        <input type="datetime-local" name="fechaHora">
+    </label>
+    <br><br>
+
+    <!-- month -->
+    <label>Mes:
+        <input type="month" name="mes">
+    </label>
+    <br><br>
+
+    <!-- week -->
+    <label>Semana:
+        <input type="week" name="semana">
+    </label>
+    <br><br>
+
+    <!-- color -->
+    <label>Color favorito:
+        <input type="color" name="color">
+    </label>
+    <br><br>
+
+    <!-- range -->
+    <label>Valor:
+        <input type="range" name="valor" min="0" max="20">
+    </label>
+    <br><br>
+
+    <!-- checkbox -->
+    <label>
+        <input type="checkbox" name="acepta">
+        Acepto condiciones
+    </label>
+    <br><br>
+
+    <!-- radio -->
+    Género:
+    <label>
+        <input type="radio" name="sexo" value="H">
+        Hombre
+    </label>
+    <label>
+        <input type="radio" name="sexo" value="M">
+        Mujer
+    </label>
+    <br><br>
+
+    <!-- file -->
+    <label>Archivo:
+        <input type="file" name="archivo">
+    </label>
+    <br><br>
+
+    <!-- hidden -->
+    <input type="hidden" name="id" value="123">
+
+    <!-- image -->  <!-- Es un botón de envío (submit) que utiliza una imagen -->
+    <input
+        type="image"
+        src="https://via.placeholder.com/100x40"
+        alt="Enviar">
+    <br><br>
+
+    <!-- textarea -->
+    <label for="comentarios">Comentarios:</label>
+    <br>
+    <textarea id="comentarios" name="comentarios" rows="4" cols="40"></textarea>
+    <br><br>
+
+    <!-- select -->
+    <label>Provincia:
+        <select name="provincia">
+            <option>Madrid</option>
+            <option>Barcelona</option>
+            <option>Valencia</option>
+        </select>
+    </label>
+    <br><br>
+
+    <!-- datalist -->
+    <label>Navegador:
+        <input list="navegadores" name="navegador">
+    </label>
+
+    <datalist id="navegadores">
+        <option value="Chrome">
+        <option value="Firefox">
+        <option value="Edge">
+    </datalist>
+
+    <br><br>
+
+    <!-- botones -->
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpiar">
+    <input type="button" value="Botón normal">
+    <button type="button">Botón normal</button>
+    <button type="submit">Enviar</button>
+    <button type="reset">Limpiar</button>
+</form>
+
+</body>
+</html>
