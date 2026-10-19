@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <form action="ejercicio7-datos.php" method="get">
+        <label for="num1">Elige el primer número:</label>
+        <input type="text" id="num1" name="num1"><br>
+ 
+        <label for="num2">Elige el segundo número:</label>
+        <input type="text" id="num2" name="num2">
+ 
+        <fieldset>
+            <legend>Seleccione la operación:</legend>
+            <label>Suma <input type="radio" name="operacion" value="suma" checked></label>
+            <label>Resta <input type="radio" name="operacion" value="resta"></label>
+            <label>Producto <input type="radio" name="operacion" value="producto"></label>
+            <label>Cociente <input type="radio" name="operacion" value="cociente"></label>
+        </fieldset>
+ 
+        <br>
+        <input type="submit" value="Enviar datos">
+    </form>
+</body>
+</html>

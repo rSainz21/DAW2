@@ -1,0 +1,106 @@
+/* ===== Variables de color ===== */
+:root {
+    --color-oscuro: #2c3e50;
+    --color-acento: #3498db;
+    --fondo: #f4f6f9;
+    --fondo-finde: #fdecea;
+    --texto-finde: #c0392b;
+    --borde: #eef1f4;
+}
+
+/* ===== General ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 20px;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--color-oscuro);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+    margin: 0 0 30px;
+}
+
+/* ===== Rejilla de meses ===== */
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* ===== Tarjeta de cada mes ===== */
+.mes {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mes:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mes table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Nombre del mes */
+.mes caption {
+    background: linear-gradient(135deg, var(--color-oscuro), var(--color-acento));
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px;
+}
+
+/* Cabecera con los días de la semana */
+.mes th {
+    background: #ecf0f1;
+    padding: 8px 0;
+    font-size: 0.85rem;
+}
+
+.mes th:nth-child(6),
+.mes th:nth-child(7) {
+    color: var(--texto-finde);
+}
+
+/* ===== Celdas ===== */
+.mes td {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.95rem;
+    border: 1px solid var(--borde);
+}
+
+/* Celdas vacías (antes del día 1 y después del último día) */
+.mes td.vacio {
+    background: #fafbfc;
+}
+
+/* Sábados y domingos */
+.mes td.finde {
+    background: var(--fondo-finde);
+    color: var(--texto-finde);
+}
+
+/* Día de hoy */
+.mes td.hoy {
+    background: var(--color-acento);
+    color: #fff;
+    font-weight: bold;
+}
