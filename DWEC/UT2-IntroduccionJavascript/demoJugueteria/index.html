@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugueteria</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="#">
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="module">
+        import Juguete from './juguete.js';
+        import datos from './datos.js';
+
+        let lista = [];
+        for (let i in datos) {
+            let d = datos[i];
+            lista.push(new Juguete(d.jugueteId, d.nombre, d.marca, d.precio));
+        }
+
+        console.log(lista);                 
+        console.log(lista[0].nombre);       
+        //lista[0].nombre = 'Otro nombre';   
+        //console.log(lista[0].nombre);
+
+        document.querySelector('#app').innerHTML = lista[0].generarHTMLPropiedades();
+    </script>
+</body>
+
+</html>
