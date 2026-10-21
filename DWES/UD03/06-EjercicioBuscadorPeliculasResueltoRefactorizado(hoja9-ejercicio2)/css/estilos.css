@@ -1,0 +1,12 @@
+body { font-family: Arial, sans-serif; padding: 20px; max-width: 900px; }
+form { margin-bottom: 16px; }
+input[type="text"] { width: 60%; padding: 8px; }
+button { padding: 8px 12px; }
+.limpiar { margin-left: 12px; }
+.error { color: #b91c1c; margin: 6px 0 0; }
+.nota { color: #555; margin-bottom: 12px; }
+.pelicula { border-bottom: 1px solid #ddd; padding: 12px 0; }
+.titulo { font-weight: 700; font-size: 1.1rem; }
+.anio { color: #666; margin-left: 8px; }
+.sinopsis { margin-top: 6px; }
+mark { background: #ffea8a; }
