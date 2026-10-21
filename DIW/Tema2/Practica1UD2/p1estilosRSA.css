@@ -1,0 +1,300 @@
+/* RESET INICIAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ESTILOS GENERALES */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1E293B;
+    background-color: #F8FAFC;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* FRANJA SUPERIOR */
+
+.franja {
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #FBBF24;
+    color: #172554;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* CABECERA */
+
+.cabecera {
+    height: 74px;
+    padding: 0 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #172554;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* MENÚ */
+
+.menu {
+    display: flex;
+    gap: 22px;
+}
+
+.menu a {
+    color: white;
+}
+
+.menu a:hover {
+    color: #FBBF24;
+}
+
+
+/* PRESENTACIÓN */
+
+.presentacion {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 50px 20px;
+
+    text-align: center;
+}
+
+.presentacion-titulo {
+    margin-bottom: 8px;
+
+    color: #2563EB;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.presentacion h1 {
+    margin-bottom: 12px;
+
+    color: #172554;
+    font-size: 40px;
+}
+
+.presentacion-subtitulo {
+    color: #475569;
+    font-size: 18px;
+}
+
+
+/* CURSOS DESTACADOS */
+
+.destacados {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+.destacados h2,
+.explorar h2 {
+    margin-bottom: 20px;
+
+    color: #172554;
+}
+
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+
+/* TARJETA */
+
+.tarjeta {
+    flex: 1;
+    min-width: 280px;
+
+    background-color: white;
+    border: 1px solid #DBEAFE;
+    border-radius: 12px;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.cabecera-tarjeta {
+    height: 170px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.fondo-html {
+    background: linear-gradient(135deg, #2563EB, #38BDF8);
+}
+
+.fondo-js {
+    background: linear-gradient(135deg, #7C3AED, #C084FC);
+}
+
+.fondo-ux {
+    background: linear-gradient(135deg, #0F766E, #2DD4BF);
+}
+
+.tarjeta-body {
+    padding: 20px;
+}
+
+.tarjeta-body h3 {
+    margin-bottom: 8px;
+
+    color: #1E293B;
+    font-size: 22px;
+}
+
+.tarjeta-body p {
+    margin-bottom: 18px;
+
+    color: #475569;
+    line-height: 1.6;
+}
+
+
+/* BOTÓN */
+
+.boton {
+    display: inline-block;
+    padding: 10px 18px;
+
+    background-color: #2563EB;
+    color: white;
+
+    border-radius: 6px;
+}
+
+.boton:hover {
+    background-color: #FBBF24;
+    color: #172554;
+}
+
+
+/* ETIQUETA NUEVO */
+
+.etiqueta {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    padding: 6px 10px;
+
+    background-color: #FBBF24;
+    color: #172554;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    border-radius: 20px;
+}
+
+
+/* EXPLORAR POR TEMAS */
+
+.explorar {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px 50px 20px;
+}
+
+.lista-temas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tema {
+    display: inline-block;
+    padding: 8px 14px;
+
+    background-color: #DBEAFE;
+    color: #1E40AF;
+
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+.tema:hover {
+    background-color: #2563EB;
+    color: white;
+}
+
+
+/* PIE DE PÁGINA */
+
+footer {
+    min-height: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #172554;
+    color: white;
+
+    text-align: center;
+}
+
+
+/* PANTALLAS PEQUEÑAS */
+
+@media (max-width: 600px) {
+    .cabecera {
+        padding: 0 3%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+
+    .presentacion h1 {
+        font-size: 30px;
+    }
+}
