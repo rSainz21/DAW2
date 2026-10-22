@@ -6,10 +6,16 @@ export default class Jugueteria {
     #contenedor;
     #juguetes;
     #contador;
-    constructor(contenedor, juguetes, contador) {
-        this.#contenedor = contenedor;
+
+    constructor() {
         this.#juguetes = [];
         this.#contador = 0;
+        for (let dato of datos) {
+            this.#juguetes.push(new Juguete(dato.jugueteId, dato.nombre, dato.marca, dato.precio));
+            if (dato.jugueteId > this.#contador) {
+                this.#contador = dato.jugueteId;
+            }
+        }
     }
 
     iniciarApp(selector) {
@@ -18,6 +24,8 @@ export default class Jugueteria {
             alert(`No se ha encontrado el contenedor ${selector}`);
             return;
         }
+        this.#asignarEventos();
+        this.navegarInicio();
     }
 
     obtenerJuguetes(filtro) {
@@ -25,9 +33,8 @@ export default class Jugueteria {
             return this.#juguetes;
         }
         let resultado = [];
-        for (let i in this.#juguetes) {
-            let juguete = this.#juguetes[i];
-            if (juguete.nombre === filtro) {
+        for (let juguete of this.#juguetes) {
+            if (juguete.nombre.toLowerCase().includes(filtro.toLowerCase())) {
                 resultado.push(juguete);
             }
         }
@@ -35,9 +42,9 @@ export default class Jugueteria {
     }
 
     obtenerJuguete(jugueteId) {
-        for (let i in this.#juguetes) {
-            if (jugueteId === this.#juguetes[i].jugueteId) {
-                return this.#juguetes[i];
+        for (let juguete of this.#juguetes) {
+            if (jugueteId === juguete.jugueteId) {
+                return juguete;
             }
         }
     }
@@ -50,12 +57,86 @@ export default class Jugueteria {
     }
 
     borrarJuguete(jugueteId) {
-        for (let i in this.#juguetes) {
-            if (jugueteId === this.#juguetes[i].jugueteId) {
-                this.#juguetes.splice(i, 1);
+        for (let juguete of this.#juguetes) {
+            if (jugueteId === juguete.jugueteId) {
+                this.#juguetes.splice(this.#juguetes.indexOf(juguete), 1);
                 return;
             }
         }
+    }
+
+    navegarInicio(filtro = '') {
+        this.#contenedor.innerHTML =
+            this.generarHTMLNavegacion() + this.generarHTMLBuscador() + this.generarHTMLListado(this.obtenerJuguetes(filtro));
+        this.#contenedor.querySelector('#jg-buscador-filtro').value = filtro;
+    }
+
+    navegarListadoJuguetes() {
+        this.#contenedor.innerHTML = this.generarHTMLNavegacion() + this.generarHTMLListado(this.obtenerJuguetes());
+    }
+
+    navegarPropiedades(juguete) {
+        this.#contenedor.innerHTML = this.generarHTMLNavegacion() + juguete.generarHTMLPropiedades();
+    }
+
+    #asignarEventos() {
+        this.#contenedor.addEventListener('click', (evento) => {
+            let fila = evento.target.closest('[data-id]');
+
+            switch (evento.target.dataset.destino) {
+                case 'inicio':
+                    this.navegarInicio();
+                    break;
+                case 'listadojuguetes':
+                    this.navegarListadoJuguetes();
+                    break;
+            }
+
+            switch (evento.target.dataset.accion) {
+                case 'nuevo':
+                    this.navegarPropiedades(new Juguete());
+                    break;
+                case 'ver':
+                    this.navegarPropiedades(this.obtenerJuguete(Number(fila.dataset.id)));
+                    break;
+                case 'borrar':
+                    this.borrarJuguete(Number(fila.dataset.id));
+                    this.navegarListadoJuguetes();
+                    break;
+            }
+        });
+
+        this.#contenedor.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+
+            switch (evento.target.dataset.componente) {
+                case 'buscador':
+                    this.navegarInicio(this.#contenedor.querySelector('#jg-buscador-filtro').value);
+                    break;
+                case 'propiedades':
+                    this.#guardarJuguete();
+                    break;
+            }
+        });
+    }
+
+    #guardarJuguete() {
+        let jugueteId = Number(this.#contenedor.querySelector('#jugueteid').value);
+        let nuevo = {
+            nombre: this.#contenedor.querySelector('#nombre').value,
+            marca: this.#contenedor.querySelector('#marca').value,
+            precio: Number(this.#contenedor.querySelector('#precio').value)
+        };
+
+        if (jugueteId === 0) {
+            this.crearJuguete(nuevo);
+        } else {
+            let juguete = this.obtenerJuguete(jugueteId);
+            juguete.nombre = nuevo.nombre;
+            juguete.marca = nuevo.marca;
+            juguete.precio = nuevo.precio;
+        }
+        this.navegarListadoJuguetes();
     }
 
     generarHTMLNavegacion() {
@@ -73,21 +154,21 @@ export default class Jugueteria {
         <form data-componente="buscador" name="jg-buscador">
             <input type="text" id="jg-buscador-filtro" placeholder="Buscar por nombre..." />
             <button type="submit">Buscar</button>
-        </form>`
+        </form>`;
     }
 
     generarHTMLListado(listaJuguetes) {
         let filas = "";
-        for (let i of listaJuguetes) {
-            let juguete = listaJuguetes[i];
+        for (let juguete of listaJuguetes) {
             filas += `
-            <div class="jg-tabla-fila" data-id=${juguete.jugueteId}>
+            <div class="jg-tabla-fila" data-id="${juguete.jugueteId}">
                 <div>${juguete.nombre}</div>
-                <div>${juguete.marca}<div>
-                <div>${juguete.precio}€
-            <div>
-                <input type="button" value="Ver" data-accion="ver">
-                <input type="button" value="Borrar" data-accion="borrar">
+                <div>${juguete.marca}</div>
+                <div>${juguete.precio}€</div>
+                <div>
+                    <input type="button" value="Ver" data-accion="ver">
+                    <input type="button" value="Borrar" data-accion="borrar">
+                </div>
             </div>`;
         }
         return `
@@ -96,8 +177,8 @@ export default class Jugueteria {
                 <div>Nombre</div>
                 <div>Marca</div>
                 <div>Precio</div> 
-        </div> 
-3 
+                <div>Acciones</div>
+            </div> 
             ${filas}
             <div>
                 <input type="button" value="Nuevo" data-accion="nuevo">

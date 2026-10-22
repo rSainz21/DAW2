@@ -10,23 +10,14 @@
 </head>
 
 <body>
+
     <div id="app"></div>
+
     <script type="module">
-        import Juguete from './juguete.js';
-        import datos from './datos.js';
+        import Jugueteria from './jugueteria.js';
 
-        let lista = [];
-        for (let i in datos) {
-            let d = datos[i];
-            lista.push(new Juguete(d.jugueteId, d.nombre, d.marca, d.precio));
-        }
-
-        console.log(lista);                 
-        console.log(lista[0].nombre);       
-        //lista[0].nombre = 'Otro nombre';   
-        //console.log(lista[0].nombre);
-
-        document.querySelector('#app').innerHTML = lista[0].generarHTMLPropiedades();
+        const jugueteria = new Jugueteria();
+        jugueteria.iniciarApp('#app');
     </script>
 </body>
 
