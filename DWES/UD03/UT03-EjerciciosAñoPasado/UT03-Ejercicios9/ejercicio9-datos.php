@@ -81,6 +81,46 @@ function validarNumero(string $texto): ?float{
 // Solo se acepta si el código existe como clave en el array de monedas (lista de valores permitidos).
 // Devuelve el código si es válido o null si no lo es.
 
+function validarMoneda(string $codigo, array $monedas): ?string{
+  return isset($monedas[$codigo]?$codigo:null);
+  
+  $errores=[];
+  $datos=[];
+
+  $cantidad=validarNumero($entrada['cantidad']);
+  if($cantidad===null){
+    $errores['cantidad']='Introduce una cantidad numerica valida';
+  }else if($cantidad<=0){
+    $errores['cantidad']='La cantidad debe de ser mayor que 0';
+  }else{
+    $datos['cantidad']=$cantidad;
+  }
+
+  $origen=validarMoneda($entrada['origen'],$monedas);
+  if($origen===null){
+    $errores['origen']='Introduce un origen valido';
+  }else{
+    $datos['origen']=$origen;
+  }
+
+  $destino=validarMoneda($entrada['destino'],$monedas);
+  if($destino===null){
+    $errores['destino']='Introduce un destino valido';
+  }else{
+    $datos['destino']=$destino;
+  }
+
+  return['errores'=>$errores,'datos'=>$datos];
+  
+}
+
+// Lógica de negocio: convierte pasando por el euro.
+//   cantidad / (unidades de la moneda origen por 1 EUR) * (unidades de la moneda destino por 1 EUR)
+// Ejemplo: 100 EUR -> USD = 100 / 1.00 * 1.10 = 110
+function convertir(float $cantidad, string $origen, string $destino, array $tiposCambio):?float{
+  return $cantidad/$tiposCambio[$origen]*$tiposCambio[$destino];
+}
+
 
 
 
