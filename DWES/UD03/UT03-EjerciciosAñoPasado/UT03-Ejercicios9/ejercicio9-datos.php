@@ -81,38 +81,38 @@ function validarNumero(string $texto): ?float{
 // Solo se acepta si el código existe como clave en el array de monedas (lista de valores permitidos).
 // Devuelve el código si es válido o null si no lo es.
 
-function validarMoneda(string $codigo, array $monedas): ?string{
-  return isset($monedas[$codigo]?$codigo:null);
+// function validarMoneda(string $codigo, array $monedas): ?string{
+//   return isset($monedas[$codigo]?$codigo:null);
   
-  $errores=[];
-  $datos=[];
+//   $errores=[];
+//   $datos=[];
 
-  $cantidad=validarNumero($entrada['cantidad']);
-  if($cantidad===null){
-    $errores['cantidad']='Introduce una cantidad numerica valida';
-  }else if($cantidad<=0){
-    $errores['cantidad']='La cantidad debe de ser mayor que 0';
-  }else{
-    $datos['cantidad']=$cantidad;
-  }
+//   $cantidad=validarNumero($entrada['cantidad']);
+//   if($cantidad===null){
+//     $errores['cantidad']='Introduce una cantidad numerica valida';
+//   }else if($cantidad<=0){
+//     $errores['cantidad']='La cantidad debe de ser mayor que 0';
+//   }else{
+//     $datos['cantidad']=$cantidad;
+//   }
 
-  $origen=validarMoneda($entrada['origen'],$monedas);
-  if($origen===null){
-    $errores['origen']='Introduce un origen valido';
-  }else{
-    $datos['origen']=$origen;
-  }
+//   $origen=validarMoneda($entrada['origen'],$monedas);
+//   if($origen===null){
+//     $errores['origen']='Introduce un origen valido';
+//   }else{
+//     $datos['origen']=$origen;
+//   }
 
-  $destino=validarMoneda($entrada['destino'],$monedas);
-  if($destino===null){
-    $errores['destino']='Introduce un destino valido';
-  }else{
-    $datos['destino']=$destino;
-  }
+//   $destino=validarMoneda($entrada['destino'],$monedas);
+//   if($destino===null){
+//     $errores['destino']='Introduce un destino valido';
+//   }else{
+//     $datos['destino']=$destino;
+//   }
 
-  return['errores'=>$errores,'datos'=>$datos];
+//   return['errores'=>$errores,'datos'=>$datos];
   
-}
+// }
 
 // Lógica de negocio: convierte pasando por el euro.
 //   cantidad / (unidades de la moneda origen por 1 EUR) * (unidades de la moneda destino por 1 EUR)
