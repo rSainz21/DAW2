@@ -1,0 +1,12 @@
+.hero{
+    background-color: antiquewhite !important;
+}
+
+.btn-primary{
+    background-color: aqua;
+    border-color: blue;
+}
+
+.btn-primary:hover{
+    background-color: blue;
+}
