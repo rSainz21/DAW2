@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; padding: 20px; max-width: 700px; }
+label { display: block; margin-top: 14px; }
+input[type="text"] { display: block; width: 260px; padding: 6px; margin-top: 4px; }
+select { display: block; padding: 6px; margin-top: 4px; min-width: 380px; }
+.error { display: block; color: #a00; margin-top: 4px; }
+.resultado { margin-top: 20px; padding: 12px; background: #f4f4f4; border: 1px solid #ddd; }
