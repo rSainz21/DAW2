@@ -1,3 +1,309 @@
-.cabecera{
+/* =====================================================
+   FOCUS - Práctica 4 (Unidad 2)
+   Hoja de estilos propia (se carga DESPUÉS de Bootstrap)
+   ===================================================== */
+
+
+/* ---------- RESET Y BASE ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F5F7FA;
+    color: #20252B;
+}
+
+img {
+    display: block;
+}
+
+
+/* ---------- CABECERA (Navbar de Bootstrap) ---------- */
+
+.cabecera {
     background-color: #172238;
+    min-height: 72px;
+}
+
+.cabecera .navbar-brand {
+    font-size: 27px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.cabecera .nav-link {
+    color: #FFFFFF;
+}
+
+.cabecera .nav-link:hover {
+    color: #F7C948;
+}
+
+.suscribirme {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.suscribirme:hover {
+    background-color: #FFFFFF;
+    color: #172238;
+}
+
+
+/* ---------- PORTADA (CSS Grid) ---------- */
+
+.portada {
+    width: 90%;
+    max-width: 1180px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 20px;
+}
+
+.noticia-principal {
+    grid-row: 1 / 3;
+}
+
+.noticia {
+    position: relative;
+    overflow: hidden;
+    background-color: #172238;
+}
+
+.noticia img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Texto superpuesto en la parte inferior de la imagen */
+
+.contenido-noticia {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 18px 20px;
+    background-color: rgba(23, 34, 56, 0.8);
+    color: #FFFFFF;
+}
+
+.contenido-noticia h1 {
+    font-size: 33px;
+    line-height: 1.2;
+    color: #FFFFFF;
+}
+
+.contenido-noticia h2 {
+    font-size: 20px;
+    line-height: 1.25;
+    color: #FFFFFF;
+}
+
+
+/* Categoría a la izquierda y fecha a la derecha (Flexbox) */
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.meta span {
+    color: #F7C948;
+    font-weight: bold;
+}
+
+
+/* Etiqueta DESTACADO (relative en .noticia + absolute aquí) */
+
+.destacado {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    padding: 6px 10px;
+    background-color: #F7C948;
+    color: #172238;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* ---------- ÚLTIMOS ARTÍCULOS (Bootstrap) ---------- */
+
+.ultimos {
+    width: 90%;
+    max-width: 1180px;
+    margin: 40px auto;
+}
+
+.ultimos h2 {
+    font-size: 28px;
+    color: #20252B;
+    margin-bottom: 20px;
+}
+
+.card {
+    border: 1px solid #DDE2E8;
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+.card .badge {
+    align-self: flex-start;
+    background-color: #172238;
+    color: #FFFFFF;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #20252B;
+    margin-bottom: 8px;
+}
+
+.card-text {
+    color: #68717C;
+    margin-bottom: 16px;
+}
+
+
+/* Personalización del botón de Bootstrap con la paleta de Focus */
+
+.btn-primary {
+    --bs-btn-bg: #D34F4F;
+    --bs-btn-border-color: #D34F4F;
+    --bs-btn-hover-bg: #172238;
+    --bs-btn-hover-border-color: #172238;
+    --bs-btn-active-bg: #172238;
+    --bs-btn-active-border-color: #172238;
+}
+
+
+/* ---------- EXPLORAR (Flexbox) ---------- */
+
+.explorar {
+    margin-top: 40px;
+}
+
+.explorar h2 {
+    font-size: 28px;
+    color: #20252B;
+    margin-bottom: 20px;
+}
+
+.temas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.temas a {
+    padding: 7px 12px;
+    background-color: #FFFFFF;
+    color: #20252B;
+    border: 1px solid #DDE2E8;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.temas a:hover {
+    background-color: #172238;
+    color: #FFFFFF;
+}
+
+
+/* ---------- PIE DE PÁGINA ---------- */
+
+footer {
+    background-color: #172238;
+    color: #FFFFFF;
+}
+
+.pie {
+    width: 90%;
+    max-width: 1180px;
+    min-height: 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pie strong {
+    font-size: 20px;
+}
+
+.pie nav {
+    display: flex;
+    gap: 22px;
+}
+
+.pie nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.pie nav a:hover {
+    color: #F7C948;
+}
+
+
+/* ---------- RESPONSIVE: 700px o menos ---------- */
+
+@media (max-width: 700px) {
+
+    /* Portada en una sola columna */
+    .portada {
+        width: auto;
+        margin: 20px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .noticia-principal {
+        grid-row: auto;
+        min-height: 350px;
+    }
+
+    .noticia-secundaria {
+        min-height: 250px;
+    }
+
+    .contenido-noticia h1 {
+        font-size: 28px;
+    }
+
+    .contenido-noticia h2 {
+        font-size: 19px;
+    }
+
+    /* Pie en vertical y centrado */
+    .pie {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 20px 0;
+        gap: 10px;
+    }
+
 }
