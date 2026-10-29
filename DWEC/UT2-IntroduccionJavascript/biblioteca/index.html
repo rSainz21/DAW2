@@ -5,21 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
+    <link rel="icon" href="#">
 </head>
 
 <body>
     <div id="app"></div>
 
     <script type="module">
-        import Libro from './libro.js';
-
-        const libro = new Libro(1, 'Don Quijote', '978-84-001-0001-1', 1, 1, [1,2,3,4,5,6]);
-        console.log(libro.titulo, libro.estaDisponible);
-
-        document.querySelector('#app').innerHTML = libro.generarHTMLPropiedades(
-            { nombre: 'Cervantes' },
-            { nombre: 'Biblioteca Central' }
-        );
+        import $biblio from './gestorBiblioteca.js';
+ 
+        // OJO: con TU datos.js los libros van del 101 al 112 (autores 1-4, bibliotecas 1-3)
+ 
+        // PASO 3: buscar por id
+        console.log('3.1', $biblio.buscarLibro(101).titulo);          // La Casa de los Espíritus
+        console.log('3.2', $biblio.buscarAutor(1).nombre);            // Isabel Allende
+        console.log('3.3', $biblio.buscarBiblioteca(1).nombre);       // Biblioteca Central
+        console.log('3.4', $biblio.buscarLibro(1));                   // undefined (no hay ningún libro con id 1)
+ 
+        // PASO 4: crear (ids siguientes a los de datos.js)
+        const autor = $biblio.crearAutor({ nombre: 'Autor Prueba', nacionalidad: 'X', biografia: 'bio' });
+        console.log('4.1', autor.autorId);                            // 5
+        const libro = $biblio.crearLibro({ titulo: 'Libro Prueba', ISBN: '123', autorId: 5, bibliotecaId: 1 });
+        console.log('4.2', libro.libroId);                            // 113
+        console.log('4.3', $biblio.buscarAutor(5).libros[0]);         // Libro Prueba (se apuntó en su autor)
+        console.log('4.4', $biblio.buscarAutor(5).libros.length);     // 1
+        const biblioteca = $biblio.crearBiblioteca({ nombre: 'Biblioteca Prueba', ubicacion: 'Calle 1' });
+        console.log('4.5', biblioteca.bibliotecaId);                  // 4
+        const huerfano = $biblio.crearLibro({ titulo: 'Sin autor', ISBN: '1', autorId: 0, bibliotecaId: 0 });
+        console.log('4.6', huerfano.libroId);                         // 114 (sin error aunque no exista el autor 0)
+ 
+        // PASO 5: borrar
+        $biblio.borrarLibro(113);
+        console.log('5.1', $biblio.buscarLibro(113));                 // undefined
+        console.log('5.2', $biblio.buscarAutor(5).libros.length);     // 0 (se quitó de su autor)
+        $biblio.borrarLibro(114);
+        console.log('5.3', $biblio.buscarLibro(114));                 // undefined
+        $biblio.borrarAutor(5);
+        console.log('5.4', $biblio.buscarAutor(5));                   // undefined
+        $biblio.borrarBiblioteca(4);
+        console.log('5.5', $biblio.buscarBiblioteca(4));              // undefined
+        $biblio.borrarLibro(999);                                     // no hace nada y no da error
+ 
+        // PASO 6: préstamos. El libro 101 tiene 2 préstamos ya devueltos
+        const casa = $biblio.buscarLibro(101);
+        console.log('6.1', casa.estaDisponible);                      // true
+        console.log('6.2', $biblio.devolverPrestamo(casa));           // false (no estaba prestado)
+        console.log('6.3', $biblio.crearPrestamo(casa));              // true
+        console.log('6.4', casa.estaDisponible);                      // false
+        console.log('6.5', casa.prestamos.length);                    // 3
+        console.log('6.6', casa.prestamos[2].fechaDevolucion);        // null (sigue prestado)
+        console.log('6.7', $biblio.crearPrestamo(casa));              // false (ya estaba prestado)
+        console.log('6.8', $biblio.devolverPrestamo(casa));           // true
+        console.log('6.9', casa.estaDisponible);                      // true
+        console.log('6.10', casa.prestamos[2].fechaDevolucion);       // la fecha de hoy, tipo 2026-10-29
+ 
+        // El libro 103 viene de datos.js con un préstamo SIN fechaDevolucion: debe contar como prestado
+        const amante = $biblio.buscarLibro(103);
+        console.log('6.11', amante.estaDisponible);                   // false
+        console.log('6.12', $biblio.devolverPrestamo(amante));        // true
+        console.log('6.13', amante.estaDisponible);                   // true
+ 
+        // PASO 7: búsquedas por texto
+        console.log('7.1', $biblio.buscarLibrosPorTitulo('casa').length);   // 1
+        console.log('7.2', $biblio.buscarLibrosPorAutor('volpi').length);   // 1
     </script>
 </body>
 

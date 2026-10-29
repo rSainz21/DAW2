@@ -47,6 +47,8 @@ class Biblioteca {
     generarHTMLCreacion() {
         return `
         <form data-componente="biblioteca-creacion" name="biblioteca-creacion>
+        <h2>Nueva biblioteca</h2>
+
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" required>
@@ -61,3 +63,5 @@ class Biblioteca {
         </form>`;
     }
 }
+
+export default Biblioteca;

@@ -19,7 +19,7 @@ class Libro{
         for (let prestamo of prestamos) {
             this.prestamos.push({
                 fechaPrestamo: prestamo.fechaPrestamo,
-                fechaDevolucion: prestamo.fechaDevolucion
+                fechaDevolucion: prestamo.fechaDevolucion===undefined?null:prestamo.fechaDevolucion
             });
         }
     }
@@ -75,7 +75,8 @@ class Libro{
 
     generarHTMLCreacion(){
         return `
-        <form data-componente="libro-creacion" name="libro-creacion">
+        <form data-componente="libro-creacion" name="libro-creacion">ç
+            <h2>Nuevo libro</h2>
             <div>
                 <label for="titulo">Titulo:</label>
                 <input type type="text" id="titulo" name="titulo" required>
@@ -86,7 +87,7 @@ class Libro{
             </div>
             <div>
                 <label for="autorid">Id del autor:</label>
-                <input type="hidden" id="autorid" value="${this.autorId}" required>
+                <input type="number" id="autorid" value="${this.autorId}" required>
             <div>
             <div>
                 <label for="bibliotecaid">Id de la biblioteca:</label>
@@ -121,8 +122,15 @@ class Libro{
                 <label for="isbn">ISBN:</label>
                 <input type="text" id="isbn" name="isbn" value="${this.ISBN}" required>
             </div>
-            <input type type="hidden" id="autorid" name="autorid" required>
-            <input type type="hidden" id="bibliotecaid" name="bibliotecaid" required>
+            <div>
+                <label for="autorid">Id del autor:</label>
+                <input type="number" id="autorid" value="${this.autorId}" required>
+            <div>
+            <div>
+                <label for="bibliotecaid">Id de la biblioteca:</label>
+                <input type="hidden" id="bibliotecaid" value="${this.bibliotecaId}" required>
+            <div>
+            <div>Disponible: ${disponible}</div>
             <div>
                 <input type="button" value="Guardar" data-accion="btnGuardar">
             </div>
@@ -157,9 +165,11 @@ class Libro{
 
         return `
         <div data-componente="libro-prestamos" data-id="${this.libroId}"> 
+
+            <h2>Prestamos de ${this.titulo}</div>
             <div class="tabla-listado">
                 <div class="tabla-fila cabecera"> 
-                    <div>Nombre</div><div>Marca</div><div>Precio</div> 
+                    <div>Fecha de prestamo</div><div>Fecha de devolucion</div>
                 </div>
                 ${filas}
             </div>

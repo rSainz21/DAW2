@@ -54,6 +54,7 @@ class Autor{
     generarHTMLCreacion(){
         return `
         <form data-componente="autor-creacion" name="autor-creacion">
+            <h2>Nuevo autor</h2>
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type type="text" id="nombre" name="nombre" required>
@@ -63,7 +64,7 @@ class Autor{
                 <input type="text" id="nacionalidad" name="nacionalidad">
             </div>
             <div>
-                <label for="biografia">Biogracia:</label>
+                <label for="biografia">Biografia:</label>
                 <input type type="text" id="biografia" name="biografia" required>
             </div>
             <div>
@@ -89,6 +90,7 @@ class Autor{
  
         return `
         <div data-componente="autor-propiedades" data-id="${this.autorId}">
+            
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type type="text" id="nombre" name="nombre" value="${this.nombre}" required>
@@ -101,6 +103,7 @@ class Autor{
                 <label for="biografia">Biografia:</label>
                 <input type type="text" id="biografia" name="biografia" value="${this.biografia}" required>
             </div>
+            <h3>Libros publicados</div>
             <div class="listado-tabla">
                 <div class="tabla-fila cabecera">
                     <div>Título</div><div>Acciones</div>
