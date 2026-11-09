@@ -1,0 +1,534 @@
+/* ==========================================
+   NOMADLY - estilos.css
+   (se carga DESPUÉS de Bootstrap)
+   Paleta:
+   verde oscuro #18392B | verde acción #2F6B4F | verde claro #DDE9E2
+   arena #E9D8BC | fondo cálido #F6F2EA
+   texto #262824 | texto secundario #68706A
+   ========================================== */
+
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #262824;
+    background-color: #F6F2EA;
+}
+
+/* Bootstrap subraya los enlaces y los pone azules: los dejamos limpios */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Bootstrap da margen inferior a h1-h6 y p: los controlamos nosotros */
+h1, h2, h3, p {
+    margin: 0;
+}
+
+/* texto pequeño de sección (VIAJA A TU RITMO, EXPERIENCIAS) */
+.sobrelinea {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #2F6B4F;
+}
+
+
+/* ==========================================
+   CABECERA - personalizar la NAVBAR de Bootstrap
+   (.navbar.navegacion = más específico que
+   .navbar[data-bs-theme=dark] de Bootstrap)
+   ========================================== */
+.navbar.navegacion {
+    min-height: 76px;
+    background-color: #18392B;
+
+    /* variables de la navbar de Bootstrap */
+    --bs-navbar-color: rgba(255, 255, 255, 0.85);
+    --bs-navbar-hover-color: #E9D8BC;
+    --bs-navbar-active-color: #E9D8BC;
+    --bs-navbar-brand-color: #FFFFFF;
+    --bs-navbar-brand-hover-color: #E9D8BC;
+}
+
+.navegacion .navbar-brand {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navegacion .nav-link {
+    font-size: 15px;
+}
+
+.boton-sesion {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    font-size: 14px;
+    color: white;
+}
+
+.boton-sesion:hover {
+    background-color: white;
+    border-color: white;
+    color: #18392B;
+}
+
+
+/* ==========================================
+   PRESENTACIÓN - CSS Grid de 2 columnas
+   ========================================== */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 440px;
+    background-color: #F6F2EA;
+}
+
+.hero-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;      /* centrado vertical */
+    align-items: flex-start;      /* alineado a la izquierda */
+    padding: 40px 40px 40px 5%;
+}
+
+.hero-texto h1 {
+    max-width: 460px;
+    margin: 14px 0 16px;
+    font-size: 48px;
+    line-height: 1.15;
+    color: #18392B;
+}
+
+.descripcion {
+    max-width: 430px;
+    font-size: 17.5px;
+    line-height: 1.6;
+    color: #68706A;
+}
+
+.boton-principal {
+    display: inline-block;
+    margin-top: 26px;
+    padding: 11px 20px;
+    background-color: #2F6B4F;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+}
+
+.boton-principal:hover {
+    background-color: #18392B;
+    color: white;
+}
+
+/* imagen + etiqueta superpuesta (posicionamiento) */
+.hero-imagen {
+    position: relative;           /* referencia para el absolute */
+}
+
+.hero-imagen img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;            /* ocupa todo sin deformarse */
+}
+
+.precio {
+    position: absolute;
+    right: 19px;
+    bottom: 19px;
+    padding: 9px 14px;
+    background-color: #FFFFFF;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #18392B;
+}
+
+
+/* ==========================================
+   DESCUBRE - CSS Grid asimétrico
+   ========================================== */
+.descubrir {
+    width: 90%;
+    max-width: 1180px;
+    margin: 60px auto;
+}
+
+.descubrir h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #18392B;
+}
+
+.grid-descubrir {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;      /* principal algo más ancha */
+    grid-template-rows: repeat(3, 1fr);    /* 3 filas iguales */
+    gap: 20px;
+    height: 460px;
+}
+
+.destino {
+    position: relative;
+    overflow: hidden;
+    border-radius: 9px;
+}
+
+.destino img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* texto abajo, con degradado para que se lea sobre cualquier foto */
+.texto-destino {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 16px 14px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    color: white;
+}
+
+.texto-destino h3 {
+    font-size: 16px;
+    color: white;
+}
+
+.destino-principal .texto-destino h3 {
+    font-size: 22px;
+}
+
+.texto-destino p {
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+/* colocación en la cuadrícula */
+.destino-principal { grid-column: 1; grid-row: 1 / 4; }
+.naturaleza        { grid-column: 2; grid-row: 1; }
+.cultura           { grid-column: 2; grid-row: 2; }
+.gastronomia       { grid-column: 2; grid-row: 3; }
+
+
+/* ==========================================
+   EXPERIENCIAS - Bootstrap + personalización
+   ========================================== */
+.experiencias {
+    max-width: 1180px;
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+
+.titulo-seccion h2 {
+    font-size: 28px;
+    color: #18392B;
+}
+
+.titulo-seccion .sobrelinea {
+    margin-bottom: 4px;
+}
+
+.ver-todas {
+    margin-left: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #2F6B4F;
+}
+
+.ver-todas:hover {
+    color: #18392B;
+    text-decoration: underline;
+}
+
+/* Card de Bootstrap: cambiamos sus variables */
+.experiencias .card {
+    --bs-card-border-color: #E4DDD0;
+    --bs-card-border-radius: 10px;
+    --bs-card-inner-border-radius: 9px;
+    --bs-card-bg: #FFFFFF;
+    overflow: hidden;
+}
+
+.experiencias .card-img-top {
+    height: 190px;
+    object-fit: cover;
+}
+
+.experiencias .card-body {
+    padding: 16px;
+}
+
+.card-title {
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #262824;
+}
+
+.localizacion {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #2F6B4F;
+}
+
+.card-text {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #68706A;
+}
+
+/* Badge de Bootstrap: un color de la paleta para cada categoría */
+.experiencias .badge {
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.etiqueta-naturaleza  { background-color: #DDE9E2; color: #18392B; }
+.etiqueta-escapada    { background-color: #E9D8BC; color: #18392B; }
+.etiqueta-gastronomia { background-color: #2F6B4F; color: white; }
+.etiqueta-cultura     { background-color: #18392B; color: white; }
+
+/* Button de Bootstrap: sobrescribimos sus variables */
+.btn-primary {
+    --bs-btn-color: #FFFFFF;
+    --bs-btn-bg: #2F6B4F;
+    --bs-btn-border-color: #2F6B4F;
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #18392B;
+    --bs-btn-hover-border-color: #18392B;
+    --bs-btn-active-bg: #18392B;
+    --bs-btn-active-border-color: #18392B;
+    --bs-btn-border-radius: 6px;
+    --bs-btn-font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   VENTAJAS - Flexbox propio
+   ========================================== */
+.ventajas {
+    padding: 38px 0;
+    background-color: #DDE9E2;
+}
+
+.ventajas-contenido {
+    display: flex;
+    gap: 30px;
+    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.ventaja {
+    display: flex;
+    flex: 1;                      /* los 3 ocupan lo mismo */
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+.icono {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #18392B;
+    color: white;
+    font-size: 17px;
+}
+
+.ventaja:nth-child(1) .icono::before { content: "\21BB"; }
+.ventaja:nth-child(2) .icono::before { content: "\25C6"; }
+.ventaja:nth-child(3) .icono::before { content: "\2709"; }
+
+.ventaja h3 {
+    margin-bottom: 3px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #18392B;
+}
+
+.ventaja p {
+    font-size: 14.5px;
+    color: #68706A;
+}
+
+
+/* ==========================================
+   PIE
+   ========================================== */
+footer {
+    background-color: #18392B;
+    color: white;
+}
+
+.pie-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1180px;
+    min-height: 70px;
+    margin: 0 auto;
+}
+
+.enlaces-pie {
+    display: flex;
+    gap: 24px;
+}
+
+.enlaces-pie a {
+    font-size: 14px;
+    color: white;
+}
+
+.enlaces-pie a:hover {
+    color: #E9D8BC;
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   RESPONSIVE PROPIO (de mayor a menor)
+   ========================================== */
+
+/* ---------- 651 - 900 px ---------- */
+@media (max-width: 900px) {
+
+    /* presentación: 2 columnas, todo más pequeño */
+    .hero {
+        min-height: 380px;
+    }
+
+    .hero-texto {
+        padding: 30px 24px 30px 4%;
+    }
+
+    .hero-texto h1 {
+        font-size: 36px;
+    }
+
+    .descripcion {
+        font-size: 16px;
+    }
+
+    /* descubre: principal arriba, 3 secundarios debajo en 3 columnas */
+    .grid-descubrir {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 300px 200px;
+        height: auto;
+    }
+
+    .destino-principal { grid-column: 1 / 4; grid-row: 1; }
+    .naturaleza        { grid-column: 1;     grid-row: 2; }
+    .cultura           { grid-column: 2;     grid-row: 2; }
+    .gastronomia       { grid-column: 3;     grid-row: 2; }
+
+    /* ventajas: una fila con menos espacio */
+    .ventajas-contenido {
+        gap: 16px;
+    }
+
+    .ventaja {
+        gap: 10px;
+    }
+
+    .ventaja h3 {
+        font-size: 17px;
+    }
+}
+
+/* ---------- 650 px o menos ---------- */
+@media (max-width: 650px) {
+
+    /* presentación: una columna, texto primero y luego imagen */
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .hero-texto {
+        padding: 40px 6%;
+    }
+
+    .hero-texto h1 {
+        font-size: 35px;
+    }
+
+    .hero-imagen {
+        min-height: 300px;
+    }
+
+    /* descubre: una columna */
+    .grid-descubrir {
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px;       /* la primera fila (principal) */
+        grid-auto-rows: 225px;           /* el resto de filas */
+    }
+
+    .destino-principal,
+    .naturaleza,
+    .cultura,
+    .gastronomia {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    /* ventajas: una debajo de otra */
+    .ventajas-contenido {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .ventaja {
+        flex: none;
+    }
+
+    /* pie: vertical y centrado */
+    .pie-contenido {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .enlaces-pie {
+        justify-content: center;
+    }
+}

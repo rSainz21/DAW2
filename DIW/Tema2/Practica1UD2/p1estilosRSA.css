@@ -47,6 +47,7 @@ body {
 .menu {
     display: flex;
     gap: 22px;
+    list-style: none;
 }
 
 .menu a {
