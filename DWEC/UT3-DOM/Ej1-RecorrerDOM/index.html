@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>UD3E1 Recorrer estructura del DOM</title>
+    <script src="ej1Dom.js" defer></script>
+</head>
+<body>
+    <div id="cabecera" class="zona superior" data-seccion="inicio">
+        Cabecera de la página
+        <div class="menu">
+            Menú
+            <div id="opcion1" class="opcion activa" data-orden="1">Inicio</div>
+            <div class="opcion" data-orden="2">Productos</div>
+        </div>
+    </div>
+
+    <div id="contenido" class="zona" data-seccion="principal">
+        <div id="tienda" data-categoria="ropa">
+            Tienda
+            <div class="producto oferta" data-precio="20" data-stock="5">
+                Camiseta
+                <div id="detalle1" class="detalle">Talla M</div>
+            </div>
+            <div class="producto" data-precio="35">
+                Pantalón
+                <div class="detalle">Talla 40</div>
+            </div>
+        </div>
+        <div id="blog">
+            Blog
+            <div class="entrada">
+                Primera entrada
+                <div class="comentario">
+                    Comentario
+                    <div id="respuesta" class="respuesta destacada" data-autor="ana">Respuesta</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pruebas">
+        <label for="selector">Selector:</label>
+        <input type="text" id="selector" value="#respuesta">
+        <input type="button" id="btnJSON" value="Obtener JSON">
+        <input type="button" id="btnImprimir" value="Imprimir estructura">
+    </div>
+</body>
+</html>
