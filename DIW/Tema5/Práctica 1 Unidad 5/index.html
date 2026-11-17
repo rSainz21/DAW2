@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="cabecera">
+            <div class="marca">Aula Abierta</div>
+            <div class="menu">
+                <a href="#cursos">Cursos</a>
+                <a href="#inscripcion">Inscripción</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero" id="inicio">
+        <img class="decoracion" src="img/decoracion.svg" alt="Tres círculos decorativos azules y verdes">
+        <h2>Aprende a crear páginas web</h2>
+        <p>Talleres gratuitos para empezar a diseñar y maquetar sitios web.</p>
+        <a class="boton-enlace" href="#inscripcion">Haz clic aquí</a>
+    </div>
+
+    <div class="contenedor">
+        <h3 id="cursos">Próximos talleres</h3>
+        <p class="introduccion">Conoce nuestras actividades y descubre cómo se crea una web, paso a paso.</p>
+        <img class="proceso" src="img/proceso.svg"
+            alt="Tres etiquetas de un proceso, primero planificar, segundo maquetar y tercero revisar">
+
+        <div class="tarjetas">
+            <article class="tarjeta">
+                <h4>HTML y CSS</h4>
+                <p>Miércoles, de 17:00 a 19:00.</p>
+                <p>Estado de plazas: <span class="estado disponible"></span></p>
+            </article>
+            <article class="tarjeta">
+                <h4>Diseño de interfaces</h4>
+                <p>Viernes, de 17:00 a 19:00.</p>
+                <p>Estado de plazas: <span class="estado completo"></span></p>
+            </article>
+        </div>
+
+        <div class="registro" id="inscripcion">
+            <h3>Solicita información</h3>
+            <form action="#" method="get">
+                <label for="correo">Correo electronico</label>
+                <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
+                <label for="consulta">Consulta</label>
+                <textarea id="consulta" name="consulta" rows="4"></textarea>
+                <button type="submit">Enviar consulta</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="pie">Aula Abierta · Talleres de diseño web</div>
+</body>
+
+</html>
