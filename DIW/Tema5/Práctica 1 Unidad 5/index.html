@@ -6,59 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="#">
 </head>
 
 <body>
+    <!-- Enlace para saltar directamente al contenido con el teclado -->
+    <a class="saltar" href="#contenido">Saltar al contenido principal</a>
 
-    <header>
-        <div class="cabecera">
-            <div class="marca">Aula Abierta</div>
-            <div class="menu">
-                <a href="#cursos">Cursos</a>
-                <a href="#inscripcion">Inscripción</a>
-            </div>
-        </div>
+    <!-- (b) Etiquetas semánticas en lugar de div -->
+    <header class="cabecera">
+        <p class="marca">Aula Abierta</p>
+        <nav class="menu" aria-label="Menú principal">
+            <ul>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#inscripcion">Inscripción</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="hero" id="inicio">
-        <img class="decoracion" src="img/decoracion.svg" alt="Tres círculos decorativos azules y verdes">
-        <h2>Aprende a crear páginas web</h2>
-        <p>Talleres gratuitos para empezar a diseñar y maquetar sitios web.</p>
-        <a class="boton-enlace" href="#inscripcion">Haz clic aquí</a>
-    </div>
+    <main id="contenido">
+        <section class="hero" id="inicio">
+            <!-- (c) Imagen decorativa: alt vacío para que el lector de pantalla la ignore -->
+            <img class="decoracion" src="img/decoracion.svg" alt="">
+            <!-- (b) La página empieza por un h1 -->
+            <h1>Aprende a crear páginas web</h1>
+            <p>Talleres gratuitos para empezar a diseñar y maquetar sitios web.</p>
+            <!-- (d) Enlace que dice a dónde lleva -->
+            <a class="boton-enlace" href="#inscripcion">Solicita información sobre los talleres</a>
+        </section>
 
-    <div class="contenedor">
-        <h3 id="cursos">Próximos talleres</h3>
-        <p class="introduccion">Conoce nuestras actividades y descubre cómo se crea una web, paso a paso.</p>
-        <img class="proceso" src="img/proceso.svg"
-            alt="Tres etiquetas de un proceso, primero planificar, segundo maquetar y tercero revisar">
+        <div class="contenedor">
+            <section aria-labelledby="cursos">
+                <h2 id="cursos">Próximos talleres</h2>
+                <p class="introduccion">Conoce nuestras actividades y descubre cómo se crea una web, paso a paso.</p>
+                <!-- (c) Imagen informativa: el alt transmite la misma información que la imagen -->
+                <img class="proceso" src="img/proceso.svg"
+                    alt="Proceso para crear una web en tres pasos: 1. Planificar, 2. Maquetar y 3. Revisar.">
 
-        <div class="tarjetas">
-            <article class="tarjeta">
-                <h4>HTML y CSS</h4>
-                <p>Miércoles, de 17:00 a 19:00.</p>
-                <p>Estado de plazas: <span class="estado disponible"></span></p>
-            </article>
-            <article class="tarjeta">
-                <h4>Diseño de interfaces</h4>
-                <p>Viernes, de 17:00 a 19:00.</p>
-                <p>Estado de plazas: <span class="estado completo"></span></p>
-            </article>
+                <div class="tarjetas">
+                    <article class="tarjeta">
+                        <h3>HTML y CSS</h3>
+                        <p>Miércoles, de 17:00 a 19:00.</p>
+                        <!-- (f) El estado se indica con texto e icono, no solo con color -->
+                        <p>Estado de plazas:
+                            <span class="estado disponible"><span aria-hidden="true">✔</span> Plazas disponibles</span>
+                        </p>
+                    </article>
+                    <article class="tarjeta">
+                        <h3>Diseño de interfaces</h3>
+                        <p>Viernes, de 17:00 a 19:00.</p>
+                        <p>Estado de plazas:
+                            <span class="estado completo"><span aria-hidden="true">✖</span> Completo</span>
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="registro" aria-labelledby="titulo-inscripcion" id="inscripcion">
+                <h2 id="titulo-inscripcion">Solicita información</h2>
+                <form action="#" method="get">
+                    <!-- (e) label asociado a cada campo mediante for / id -->
+                    <label for="correo">Correo electrónico (obligatorio)</label>
+                    <!-- (6) El texto de ayuda se asocia al campo con aria-describedby -->
+                    <p class="ayuda" id="ayuda-correo">Te responderemos a esta dirección. Ejemplo: nombre@correo.com</p>
+                    <input type="email" id="correo" name="correo" autocomplete="email" aria-describedby="ayuda-correo"
+                        required>
+
+                    <label for="consulta">Consulta</label>
+                    <textarea id="consulta" name="consulta" rows="4"></textarea>
+
+                    <button type="submit">Enviar consulta</button>
+                </form>
+            </section>
         </div>
+    </main>
 
-        <div class="registro" id="inscripcion">
-            <h3>Solicita información</h3>
-            <form action="#" method="get">
-                <label for="correo">Correo electronico</label>
-                <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
-                <label for="consulta">Consulta</label>
-                <textarea id="consulta" name="consulta" rows="4"></textarea>
-                <button type="submit">Enviar consulta</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="pie">Aula Abierta · Talleres de diseño web</div>
+    <footer class="pie">
+        <p>Aula Abierta · Talleres de diseño web</p>
+    </footer>
 </body>
 
 </html>
