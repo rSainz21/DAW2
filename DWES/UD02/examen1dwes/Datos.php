@@ -1,7 +1,7 @@
 <?php 
     $sesionIniciada = true;
     
-    $nombre = "eduardo";
+    $nombre = "educardo";
     $email = "en@educantabria.es";
     $anioNacimiento = 2020;    
 
