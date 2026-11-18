@@ -38,7 +38,7 @@ $errorNombre = empty($nombre) ? "Nombre obligatorio" : "";
     </header>
     <main>
         <section class="<?= $comparaImporte ?>">
-            <h2><?=$totalModulos?></h2>
+            
             <h2>Precio matricula</h2>
             <table>
                 <tr>
