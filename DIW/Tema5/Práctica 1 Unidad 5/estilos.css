@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #243b50;
+    background: #ffffff;
+    line-height: 1.5;
+}
+
+/* Enlace "Saltar al contenido": oculto fuera de pantalla hasta que recibe el foco */
+.saltar {
+    position: absolute;
+    left: -9999px;
+    top: 10px;
+    background: #ffffff;
+    color: #203d59;
+    padding: 10px 16px;
+    font-weight: bold;
+}
+
+.saltar:focus {
+    left: 10px;
+}
+
+/* Cabecera */
+.cabecera {
+    background: #203d59;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.marca {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: bold;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+    background: #edf5f8;
+    padding: 34px 7%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    position: relative;
+    margin: 0 0 12px;
+    font-size: 2rem;
+}
+
+.hero p {
+    position: relative;
+    max-width: 580px;
+}
+
+.decoracion {
+    position: absolute;
+    width: 250px;
+    top: 4px;
+    right: 10px;
+    opacity: .6;
+    pointer-events: none;
+}
+
+/* Botones (blanco sobre #0f5f87 = 6,98:1) */
+.boton-enlace,
+button {
+    position: relative;
+    display: inline-block;
+    background: #0f5f87;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 7px;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.boton-enlace:hover,
+button:hover {
+    background: #203d59;
+}
+
+/* Contenido */
+.contenedor {
+    max-width: 1060px;
+    margin: auto;
+    padding: 32px 24px;
+}
+
+.contenedor h2 {
+    font-size: 1.55rem;
+    margin-bottom: 12px;
+}
+
+/* Antes #b6bdc6 (1,89:1). Ahora #4f5d6b sobre blanco = 6,75:1 */
+.introduccion {
+    color: #4f5d6b;
+}
+
+.proceso {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 16px 0 24px;
+    border-radius: 12px;
+}
+
+/* Tarjetas: dos columnas flexibles en lugar de 360px fijos */
+.tarjetas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.tarjeta {
+    border: 1px solid #d5e0e9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 9px #00000012;
+}
+
+.tarjeta h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+/* Estados: texto + icono + color (el color ya no es la única pista) */
+.estado {
+    font-weight: bold;
+}
+
+.estado.disponible {
+    color: #0f6b34;
+}
+
+/* 6,62:1 sobre blanco */
+.estado.completo {
+    color: #b3202c;
+}
+
+/* 6,65:1 sobre blanco */
+
+/* Formulario */
+.registro {
+    margin-top: 38px;
+    padding: 24px;
+    background: #f2f6fa;
+    border-radius: 10px;
+}
+
+.registro h2 {
+    margin-top: 0;
+}
+
+.registro form {
+    max-width: 570px;
+}
+
+label {
+    display: block;
+    margin: 16px 0 6px;
+    font-weight: bold;
+}
+
+.ayuda {
+    margin: 0 0 6px;
+    font-size: .95rem;
+    color: #4f5d6b;
+}
+
+/* Borde #5f6f7c: 4,77:1 sobre el fondo del formulario (mínimo 3:1 para componentes) */
+input,
+textarea {
+    width: 100%;
+    font: inherit;
+    padding: 10px;
+    border: 1px solid #5f6f7c;
+    border-radius: 5px;
+}
+
+.registro button {
+    margin-top: 15px;
+}
+
+/* Pie */
+.pie {
+    margin-top: 22px;
+    padding: 22px;
+    text-align: center;
+    background: #203d59;
+    color: white;
+}
+
+.pie p {
+    margin: 0;
+}
+
+/* (g) Foco visible: se elimina el "outline: none" y se pone un contorno claro */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid #203d59;
+    outline-offset: 3px;
+}
+
+/* Sobre fondo oscuro el contorno es amarillo (#ffd166 sobre #203d59 = 7,78:1) */
+.cabecera a:focus,
+.saltar:focus {
+    outline-color: #ffd166;
+}
+
+/* (h) Pantallas estrechas y zoom al 200 % */
+@media (max-width: 700px) {
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .decoracion {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .contenedor {
+        padding: 24px 16px;
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor cabecera-interior">
+            <div class="marca">Cultura Norte <span>·</span></div>
+            <nav class="navegacion">
+                <a href="#agenda">Agenda</a>
+                <a href="#acerca">Quiénes somos</a>
+                <a href="#boletin">Boletín</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="portada" id="inicio">
+        <div class="contenedor portada-interior">
+            <div>
+                <p class="eyebrow">CULTURA PARA TODOS</p>
+                <h2>Descubre lo que pasa cerca de ti</h2>
+                <p class="entradilla">Talleres, encuentros y propuestas culturales en Cantabria.</p>
+                <a class="boton" href="#agenda">Ver más</a>
+            </div>
+            <img class="ilustracion" src="img/cartel.svg">
+        </div>
+    </div>
+
+    <div class="contenedor cuerpo" id="contenido">
+        <section id="agenda" class="bloque">
+            <div class="intro-seccion">
+                <p class="eyebrow">NUESTRA PROGRAMACIÓN</p>
+                <h3>Próximas actividades</h3>
+                <p class="texto-secundario">Una pequeña selección de planes para este mes.</p>
+            </div>
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <img src="img/foto.svg" alt="imagen">
+                    <div class="tarjeta-contenido">
+                        <p class="categoria">TALLER</p>
+                        <h4>Fotografía urbana</h4>
+                        <p class="texto-secundario">Sábado · 11:00 h</p>
+                        <p>Plazas disponibles: <span class="indicador verde"></span></p>
+                        <a href="#boletin">Ver más</a>
+                    </div>
+                </article>
+                <article class="tarjeta">
+                    <img src="img/musica.svg">
+                    <div class="tarjeta-contenido">
+                        <p class="categoria">CONCIERTO</p>
+                        <h4>Música en directo</h4>
+                        <p class="texto-secundario">Viernes · 20:30 h</p>
+                        <p>Plazas disponibles: <span class="indicador rojo"></span></p>
+                        <a href="#boletin">Ver más</a>
+                    </div>
+                </article>
+                <article class="tarjeta">
+                    <img src="img/arte.svg" alt="Cartel de taller de ilustración">
+                    <div class="tarjeta-contenido">
+                        <p class="categoria">ENCUENTRO</p>
+                        <h4>Ilustración creativa</h4>
+                        <p class="texto-secundario">Domingo · 12:00 h</p>
+                        <p>Plazas disponibles: <span class="indicador verde"></span></p>
+                        <a href="#boletin">Ver más</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="presentacion" id="acerca">
+            <div>
+                <p class="eyebrow">QUIÉNES SOMOS</p>
+                <h3>Cultura más cerca</h3>
+                <p>Compartimos actividades para que cualquier persona pueda descubrir nuevas experiencias culturales en su entorno.</p>
+            </div>
+            <img src="img/decoracion.svg" alt="Figuras geométricas decorativas de colores">
+        </section>
+
+        <section class="boletin" id="boletin">
+            <div>
+                <p class="eyebrow">NO TE PIERDAS NADA</p>
+                <h3>Recibe nuestra agenda</h3>
+                <p>Un correo al mes con próximas actividades. Sin publicidad.</p>
+            </div>
+            <form action="#" method="get" class="formulario">
+                <p>Tu correo electrónico</p>
+                <div class="campo-envio">
+                    <input id="correo" name="correo" type="email" placeholder="nombre@ejemplo.com" required>
+                    <button type="submit"></button>
+                </div>
+                <small class="texto-secundario">No compartiremos tu dirección con terceros.</small>
+            </form>
+        </section>
+    </div>
+    <footer class="pie">
+        <div class="contenedor">Cultura Norte · Proyecto ficticio para prácticas de DIW</div>
+    </footer>
+</body>
+</html>

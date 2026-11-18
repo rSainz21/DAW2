@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1E293B;
+    background-color: #F8FAFC;
+}
+
+.franja{
+    display: flex;
+    height: 38px;
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    background-color: orange;
+}
+
+.cabecera{
+    display: flex;
+    height: 74px;
+    background-color: #172554;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    padding: 0 6%;
+    position: sticky;
+}
+
+.logo{
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+.menu{
+    display: flex;
+    gap: 22px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+
+.menu a:hover{
+    color: orange;
+}
+
+.presentacion{
+    max-width: 1180;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: aliceblue;
+    margin: 0 auto;
+}
+
+.presentacion-titulo{
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    color: blue;
+}
+
+.presentacion-subtitulo{
+    margin-top: 8px;
+    font-size: 18px;
+    color: rgb(74, 74, 74);
+}
+
+.destacados{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.destacados,.explorar h2{
+    color: #172554;
+    margin-bottom: 20px;
+}
+
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.tarjeta{
+    background-color: white;
+    min-width: 280px;
+    flex: 1;
+    position: relative;
+    border: 1px solid #DBEAFE;;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tarjeta img{
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.tarjeta-contenido {
+    padding: 20px;
+}
+
+.tarjeta-contenido h3 {
+    margin-bottom: 8px;
+    font-size: 22px;
+    color: #1E293B;
+}
+
+.tarjeta-contenido p {
+    margin-bottom: 16px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.boton{
+    padding: 10px 18px;
+    color: white;
+    text-decoration: none;
+    background-color: blue;
+    border-radius: 11px;
+}
+
+.etiqueta{
+    position:absolute;
+    top:12px;
+    right: 12px;
+    color:  #172554;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background-color: #FBBF24;
+}
+
+.explorar{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+.temas{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.temas a{
+    text-decoration: none;
+}
+
+.tema{
+    display: inline-flex;
+    padding: 9px 14px;
+    background-color: #63a7ff;
+    border-radius:20px;
+    font-size: 14px;
+
+}
+
+.tema:hover {
+    background-color: #2563EB;
+    color: white;
+}
+
+
+
