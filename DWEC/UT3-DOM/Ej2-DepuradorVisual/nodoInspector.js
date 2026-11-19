@@ -12,7 +12,7 @@ const $depurador = (function () {
         }
 
         get esRaiz() {
-            return this.#nodoActual === document.querySelector('html');
+            return this.#nodoActual === document.querySelector('body');
         }
 
         get esPrimerHijo() {
@@ -79,40 +79,117 @@ const $depurador = (function () {
         }
     }
 
-    let inspector=null;
-    let panel=null;
-    let estilo=null;
-    let btnRaiz=null;
-    let btnPadre=null;
-    let btnPrimerHijo=null;
-    let btnUltimoHijo=null;
-    let btnAnterior=null;
-    let btnSiguiente=null;
-    
-    function activarDepuracion(){
-        if(panel!==null){
+    let inspector = null;
+    let panel = null;
+    let estilo = null;
+    let areaInfo = null;
+    let btnPadre = null;
+    let btnPrimerHijo = null;
+    let btnUltimoHijo = null;
+    let btnAnterior = null;
+    let btnSiguiente = null;
+
+    function activarDepuracion() {
+        if (panel !== null) {
             return;
         }
-        estilo=document.createElement('style');
-        estilo.textContent=`.resaltado { outline: 3px solid rgba(225,0,128,1);
+        estilo = document.createElement('style');
+        estilo.textContent = `.resaltado { outline: 3px solid rgba(225,0,128,1);
                             background-color: rgba(225,0,128,0.2); }`;
-        
+        document.querySelector('head').appendChild(estilo);
+
+        panel = document.createElement('div');
+        btnPadre = document.createElement('input');
+        btnPadre.setAttribute('type', 'button');
+        btnPadre.setAttribute('value', 'Padre');
+        btnPadre.addEventListener('click', function () {
+            inspector.irPadre();
+        });
+        panel.appendChild(btnPadre);
+
+        btnPrimerHijo = document.createElement('input');
+        btnPrimerHijo.setAttribute('type', 'button');
+        btnPrimerHijo.setAttribute('value', 'Primer hijo');
+        btnPrimerHijo.addEventListener('click', function () {
+            inspector.irPrimerHijo();
+        });
+        panel.appendChild(btnPrimerHijo);
+
+        btnUltimoHijo = document.createElement('input');
+        btnUltimoHijo.setAttribute('type', 'button');
+        btnUltimoHijo.setAttribute('value', 'Ultimo hijo');
+        btnUltimoHijo.addEventListener('click', function () {
+            inspector.irUltimoHijo();
+        });
+        panel.appendChild(btnUltimoHijo);
+
+
+        btnAnterior = document.createElement('input');
+        btnAnterior.setAttribute('type', 'button');
+        btnAnterior.setAttribute('value', 'Anterior');
+        btnAnterior.addEventListener('click', function () {
+            inspector.irAnteriorHermano();
+        });
+        panel.appendChild(btnAnterior);
+
+        btnSiguiente = document.createElement('input');
+        btnSiguiente.setAttribute('type', 'button');
+        btnSiguiente.setAttribute('value', 'Siguiente');
+        btnSiguiente.addEventListener('click', function () {
+            inspector.irSiguienteHermano();
+        });
+        panel.appendChild(btnSiguiente);
+
+        areaInfo = document.createElement('div');
+        panel.appendChild(areaInfo);
+        document.body.appendChild(panel);
+        inspector = new NodoInspector(document.body);
     }
 
-    function desactivarDepuracion(){
+    function refrescarPanel() {
+        btnPadre.disabled = inspector.esRaiz;
+        btnPrimerHijo.disabled = !inspector.tieneHijos;
+        btnUltimoHijo.disabled = !inspector.tieneHijos;
+        btnAnterior.disabled = inspector.esPrimerHijo;
+        btnSiguiente.disabled = inspector.esUltimoHijo;
+
+        areaInfo.textContent = '';
+        const info = inspector.obtenerInfo();
+        for (let i in info) {
+            let linea = document.createElement('div');
+            linea.textContent = `${i}:${info[i]}`;
+            areaInfo.info.appendChild(linea);
+        }
+    }
+
+    function desactivarDepuracion() {
+        if (panel !== null) {
+            return;
+        }
+        let resaltado = document.querySelector('.resaltado');
+        if (resaltado !== null) {
+            resaltado.classList.toggle('resaltado');
+        }
+        panel.remove();
+        estilo.remove();
+        inspector = null;
+        estilo = null;
+        panel = null;
+        areaInfo = null;
 
     }
 
-    return{
-
+    return {
+        activarDepuracion: activarDepuracion,
+        desactivarDepuracion: desactivarDepuracion
     };
 
 })();
 
-document.getElementById('activar').addEventListener('click',function(){
+document.getElementById('activar').addEventListener('click', function () {
     $depurador.activarDepuracion();
-})
+});1
 
-document.getElementById('desactivar').addEventListener('click',function(){
+document.getElementById('desactivar').addEventListener('click', function () {
     $depurador.desactivarDepuracion();
-})
+});
