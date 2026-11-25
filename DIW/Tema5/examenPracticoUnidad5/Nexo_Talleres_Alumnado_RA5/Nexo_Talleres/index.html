@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- faltaba el lenguaje de la pagina -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <meta name="description" content="Página de información sobre nuestros servicios.">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="topbar" id="inicio">
+    <div class="container topbar__inner">
+      <a class="brand" href="#inicio">
+        <span class="brand__icon" aria-hidden="true">N</span>
+        <span>Nexo <strong>Talleres</strong></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        Agrupar el nav con sus etiquetas <a href="#talleres">Talleres</a>
+        <a href="#metodologia">Cómo funciona</a>
+        <a class="nav-cta" href="#inscripcion">Inscribirme</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="titulo-portada">
+      <div class="container hero__layout">
+        <div class="hero__copy">
+          <span class="eyebrow">APRENDE · PRACTICA · COMPARTE</span>
+          <!-- se debe empezar con h1 -->
+          <h1>Aprender algo nuevo empieza aquí.</h2>
+          <p class="hero__lead">Talleres presenciales de diseño y tecnología para desarrollar nuevas habilidades con proyectos reales.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#talleres">Explorar talleres</a>
+            <a class="text-link" href="#metodologia">Conoce nuestra metodología</a>
+          </div>
+          <div class="hero__facts">
+            <span><strong>+24</strong> ediciones</span>
+            <span><strong>Grupos</strong> reducidos</span>
+            <span><strong>100 %</strong> práctico</span>
+          </div>
+        </div>
+        <figure class="hero__figure">
+          <div class="hero__image-frame">
+            <!-- añadir un alt vacio para que el lector ignore la imagen decorativa -->
+            <img src="img/aula-colaborativa.svg" class="hero__image" alt="">
+          </div>
+          <figcaption>Aprender con otras personas multiplica las ideas.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="talleres" class="section section--courses" aria-labelledby="titulo-talleres">
+      <div class="container">
+        <!-- etiquetas article en lugar de div -->
+        <article class="section-heading">
+          <div>
+            <span class="eyebrow eyebrow--blue">EDICIÓN DE INVIERNO</span>
+            <!-- siguiente elemento h2 -->
+            <h2>Próximos talleres</h2>
+          </div>
+          <p>Elige un área, conoce sus contenidos y solicita tu plaza.</p>
+        </article>
+
+        <div class="courses-grid">
+          <article class="course-card">
+            <a class="course-card__media-link" href="#inscripcion">
+              <img src="img/diseno-ui.svg" alt="">
+            </a>
+            <div class="course-card__body">
+              <div class="course-card__meta"><span>Diseño</span><span>12 horas</span></div>
+              <h3>Diseño de interfaces</h3>
+              <p>Prototipa pantallas, organiza componentes y mejora la experiencia de uso.</p>
+              <div class="course-card__footer">
+                <!-- añadir texto ademas del icono de color para indicar la disponibilidad -->
+                <span class="availability"><span class="availability__dot availability__dot--green"></span>Plazas libres</span>
+                <a href="#inscripcion">Informacion sobre el curso <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__media"><img src="img/programacion.svg" alt=""></div>
+            <div class="course-card__body">
+              <div class="course-card__meta"><span>Desarrollo</span><span>16 horas</span></div>
+              <h3>Programación web</h3>
+              <p>Construye una página interactiva y aprende a organizar tu código.</p>
+              <div class="course-card__footer">
+                <!-- añadir texto ademas del icono de color para indicar la disponibilidad -->
+                <span class="availability"><span class="availability__dot availability__dot--orange"></span> Ultimas Plazas</span>
+                <a href="#inscripcion">Informacion sobre el curso <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__media"><img src="img/datos.svg" alt=""></div>
+            <div class="course-card__body">
+              <div class="course-card__meta"><span>Datos</span><span>10 horas</span></div>
+              <h3>Visualización de datos</h3>
+              <p>Transforma conjuntos de datos en gráficos claros y fáciles de interpretar.</p>
+              <div class="course-card__footer">
+                <!-- añadir texto ademas del icono de color para indicar la disponibilidad -->
+                <span class="availability"><span class="availability__dot availability__dot--green"></span>Plazas libres</span>
+                <a href="#inscripcion">Informacion sobre el curso <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodologia" class="section section--method" aria-labelledby="titulo-metodo">
+      <div class="container method-grid">
+        <div>
+          <span class="eyebrow eyebrow--blue">SIN RODEOS</span>
+          <h2 id="titulo-metodo">De la idea al proyecto.</h2>
+          <p>En cada sesión trabajarás con ejemplos, recibirás orientación y terminarás con algo que podrás enseñar.</p>
+        </div>
+        <div class="method-steps">
+          <div class="method-step"><span class="method-step__number">01</span><div><strong>Explora</strong><p>Conoce las herramientas esenciales.</p></div></div>
+          <div class="method-step"><span class="method-step__number">02</span><div><strong>Practica</strong><p>Aplica cada concepto con ejercicios.</p></div></div>
+          <div class="method-step"><span class="method-step__number">03</span><div><strong>Comparte</strong><p>Explica y mejora tu proyecto final.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inscripcion" class="section section--form" aria-labelledby="titulo-inscripcion">
+      <div class="container form-grid">
+        <div class="form-intro">
+          <span class="eyebrow eyebrow--blue">PLAZAS LIMITADAS</span>
+          <h2 id="titulo-inscripcion">Tu próximo taller te espera.</h2>
+          <p>Déjanos tus datos y selecciona la formación que te interesa. Esta página es una demostración y no almacena solicitudes.</p>
+          <div class="form-note">Las plazas se asignan según disponibilidad.</div>
+        </div>
+        <form class="signup-form" action="#inscripcion" method="get">
+          <h3>Solicitud de información</h3>
+          <div class="field">
+            <label for="nombre">Nombre y apellidos</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Escribe tu nombre" required>
+          </div>
+          <div class="field">
+            <label for="correo">Correo electrónico</label>
+            <!-- el for del label tiene que coincidir con el id del input -->
+            <input id="correo" name="email" type="email" autocomplete="email" placeholder="nombre@ejemplo.com" required>
+          </div>
+          <div class="field">
+            <label for="taller">Taller de interés</label>
+            <select id="taller" name="taller" required>
+              <option value="">Selecciona un taller</option>
+              <option value="diseno">Diseño de interfaces</option>
+              <option value="web">Programación web</option>
+              <option value="datos">Visualización de datos</option>
+            </select>
+          </div>
+          <button class="button button--primary button--full" type="submit">Solicitar información</button>
+          <p class="signup-form__notice">Formulario de prueba: no se envían datos a ningún servidor.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>Nexo Talleres · Aprendizaje en comunidad</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
