@@ -80,3 +80,70 @@ select:invalid {
 button {
     margin-right: 3px;
 }
+
+.fila,
+.filaCabecera {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.filaCabecera {
+    font-weight: bold;
+    background-color: #333;
+    color: white;
+}
+
+.celda {
+    width: 170px;
+    padding: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fila {
+    cursor: pointer;
+}
+
+.fila:hover{
+    background-color: #d32f2f;
+}
+
+.fila.resaltado {
+    background-color: #ffe9a8;
+}
+
+.fila.resaltado .celda {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.contenedorFichas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ficha {
+    width: 220px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #4a90d9;
+    border-radius: 10px;
+    background-color: #eef5fc;
+    cursor: pointer;
+}
+
+.ficha:hover{
+    background-color: #d32f2f;
+}
+
+.ficha.resaltado {
+    background-color: #cfe3f8;
+    border-color: #1c5fa8;
+}
+
+.fila.seleccionado,
+.ficha.seleccionado {
+    background-color: #a8dca8;
+    border-color: #2e8b2e;
+}
