@@ -8,7 +8,7 @@ class ProductoService{
         //conexion pdo sqlite
         $ruta=__DIR__ . "/../productos.db";
         $bdNueva=!file_exists($ruta);
-        $this->pdo=new PDO("sqlite" . $ruta);
+        $this->pdo=new PDO("sqlite:" . $ruta);
         $this->pdo->setAttribute(
             PDO::ATTR_ERRMODE,
             PDO::ERRMODE_EXCEPTION
@@ -19,14 +19,14 @@ class ProductoService{
                 "CREATE TABLE productos (
                 id INTEGER PRIMARY KEY  AUTOINCREMENT,
                 nombre TEXT NOT NULL,
-                precio REAL NOT NULL"
+                precio REAL NOT NULL)"
             );
-        }
 
-        $this->pdo->exec(
+            $this->pdo->exec(
             "INSERT INTO productos (nombre,precio)
             VALUES ('Teclado',25), ('Raton',10)"
-        );
+            );
+        }
     }
 
     public function obtenerProductos():array{
@@ -69,7 +69,7 @@ class ProductoService{
         ]);
     }
 
-    public function borrarProducto(Producto $id):void{
+    public function borrarProducto(int $id):void{
         $consulta=$this->pdo->prepare(
             "DELETE FROM productos
             WHERE id=?"
@@ -98,7 +98,7 @@ class ProductoService{
             }
         //insertar el producto nuevo
             $insercion=$this->pdo->prepare(
-                "INSERT INTO productos (nombre, precio9
+                "INSERT INTO productos (nombre, precio)
                 VALUES (?, ?)"
             );
 

@@ -49,14 +49,14 @@
     <h2>Transacción</h2>
 
     <p>
-        Sustituye el producto <strong>Ratón</strong> por
-        <strong>Ratón Gaming</strong> (25 €): borra uno e inserta el otro
+        Sustituye el producto <strong>Raton</strong> por
+        <strong>Raton Gaming</strong> (25 €): borra uno e inserta el otro
         en una única transacción.
     </p>
 
     <p>
         <strong>Precondición:</strong> debe existir un producto llamado
-        exactamente <em>Ratón</em>. Si no existe, la transacción lanzará
+        exactamente <em>Raton</em>. Si no existe, la transacción lanzará
         una excepción, se hará rollback y no se modificará nada.
     </p>
 
